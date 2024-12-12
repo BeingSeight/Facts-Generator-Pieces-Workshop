@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Being Human Fan Facts</title>
+    <title> Salman Khan holds the unique record of being the only actor in Indian cinema to achieve numerous milestones Generator </title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f0f2f5;
-            margin: 0;
-            padding: 0;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            padding: 20px;
         }
 
         .container {
@@ -22,13 +27,14 @@
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            max-width: 600px;
+            max-width: 500px;
             width: 90%;
         }
 
         h1 {
-            color: #e74c3c;
+            color: #1a73e8;
             margin-bottom: 2rem;
+            font-size: clamp(1.5rem, 4vw, 2rem);
         }
 
         .fact-box {
@@ -36,88 +42,96 @@
             padding: 1.5rem;
             border-radius: 8px;
             margin-bottom: 1.5rem;
-            min-height: 120px;
+            min-height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: opacity 0.3s ease;
+            transition: transform 0.3s ease;
+        }
+
+        .fact-box:hover {
+            transform: scale(1.02);
         }
 
         #fact-text {
             margin: 0;
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 3vw, 1.1rem);
             color: #333;
-            line-height: 1.6;
+            opacity: 1;
+            transition: opacity 0.3s ease;
         }
 
         button {
-            background-color: #e74c3c;
+            background-color: #1a73e8;
             color: white;
             border: none;
             padding: 12px 24px;
             border-radius: 5px;
             cursor: pointer;
             font-size: 1rem;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
         }
 
         button:hover {
-            background-color: #c0392b;
+            background-color: #1557b0;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(26, 115, 232, 0.3);
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .fact-box {
+                padding: 1rem;
+                min-height: 80px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Being Human Fan Facts</h1>
+        <h1>Fun Facts About Me</h1>
         <div class="fact-box">
-            <p id="fact-text">Click the button to learn about a devoted Salman Khan fan!</p>
+            <p id="fact-text">Click the button to learn something fun about me!</p>
         </div>
-        <button id="new-fact-btn">Show Next Fact</button>
+        <button id="new-fact-btn">Tell Me More!</button>
     </div>
 
     <script>
         const facts = [
-            "I've watched every Salman Khan movie at least 5 times and can quote all his famous dialogues by heart! 🎬",
-            "I was inspired to start my own charity initiative after seeing the impact of Salman's Being Human Foundation! ❤️",
-            "I've been collecting Being Human merchandise since 2010, and my wardrobe is filled with their charitable fashion pieces! 👕",
-            "I volunteer at local healthcare camps inspired by Being Human Foundation's medical missions! 🏥",
-            "I've attended 15 Being Human Foundation charity events and witnessed firsthand how they transform lives! 🌟",
-            "I maintain a blog dedicated to documenting all of Salman Khan's charitable activities worldwide! ✍️",
-            "I've helped sponsor 5 children's education through Being Human Foundation's education program! 📚",
-            "I organize annual fundraisers in my community inspired by Salman's philanthropy model! 🤝",
-            "I've traveled to Mumbai thrice just to volunteer at Being Human Foundation events! ✈️",
-            "I run a local fan club that focuses on spreading awareness about Being Human's charitable initiatives! 📢",
-            "I've learned Hindi just to better understand Salman's speeches about social causes! 🗣️",
-            "I've created a digital archive of all Being Human Foundation's humanitarian projects since 2007! 💻",
-            "I organize monthly charity drives following Salman's principle of 'Being Human'! 🎁",
-            "I've inspired 50 people in my network to become regular donors to Being Human Foundation! 💝",
-            "I conduct workshops teaching people about sustainable philanthropy using Being Human as a case study! 📊",
-            "I've documented over 1000 cases where Being Human Foundation has changed lives! 📷",
-            "I started a scholarship program in my city inspired by Being Human's education initiatives! 🎓",
-            "I've partnered with 10 local NGOs to replicate Being Human's healthcare programs! 🏥",
-            "I maintain a social media channel dedicated to sharing Being Human success stories! 📱",
-            "I've helped establish three free medical camps following Being Human Foundation's model! 💉"
+           "Salman Khan has delivered 15 consecutive films with over 1 crore footfalls, starting from Dabangg to Dabangg 3." "He is the only actor to have two consecutive films that were the highest-grossing of their respective decades: Maine Pyar Kiya (1980s) and Hum Aapke Hain Koun (1990s)."
+"He initiated the trend of Rs. 50 crore gross openings with Prem Ratan Dhan Payo and followed it with Sultan, making him the first to achieve this milestone." "Among his generation, he is the only star to have delivered films with over 7 crore footfalls twice."
+"Salman has delivered the highest-grossing film of the year in four consecutive decades." "He holds the record for delivering five highest non-dubbed Bollywood grossers in the 2010s." "He leads in all footfall categories among modern stars, with numerous films achieving over 1 crore, 2 crore, and even 5 crore footfalls."
+"Hum Aapke Hain Koun is recorded as the most-watched film since Sholay, with approximately 7.40 crore footfalls." "Three films starring Salman Khan—Bajrangi Bhaijaan, Sultan, and Tiger Zinda Hai—are among those that crossed ₹100 crore collections solely from single screens."
+"He delivered four blockbusters in the 2010s, with Bajrangi Bhaijaan being an all-time blockbuster." "On its third day, Bajrangi Bhaijaan was watched by nearly 50 lakh people, more than any Hindi film in history."
+"Salman holds records for the maximum number of films grossing over ₹100 crore, ₹200 crore, and ₹300 crore domestically." "He starred in Hum Aapke Hain Koun, which became the first film to gross over ₹100 crore in Indian cinema."
+"He has achieved numerous records, including 17 bumper openers and 10 single-day records." "His film Sultan holds the record for the highest worldwide collections during its opening weekend."
+"Alongside Amitabh Bachchan, he is one of only two actors to deliver three consecutive highest-grossing films of the year." "He has delivered multiple top-three highest-grossing films within a single year."
+"Salman became the only actor to collect over ₹5 billion domestically within a single year." "He has achieved multiple record openers each year across various releases."
+"Finally, he leads with several films that have crossed the significant box office milestone of ₹300 crores worldwide."
+        
         ];
 
         const factText = document.getElementById('fact-text');
         const newFactBtn = document.getElementById('new-fact-btn');
-        let currentFactIndex = -1;
 
-        function getNextFact() {
-            currentFactIndex = (currentFactIndex + 1) % facts.length;
-            return facts[currentFactIndex];
+        function getRandomFact() {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            return facts[randomIndex];
         }
 
-        newFactBtn.addEventListener('click', () => {
-            factText.style.opacity = 0;
+        function updateFact() {
+            factText.style.opacity = '0';
             setTimeout(() => {
-                factText.textContent = getNextFact();
-                factText.style.opacity = 1;
+                factText.textContent = getRandomFact();
+                factText.style.opacity = '1';
             }, 300);
-        });
+        }
 
-        // Show first fact when page loads
-        factText.textContent = getNextFact();
+        newFactBtn.addEventListener('click', updateFact);
+        factText.textContent = getRandomFact();
     </script>
 </body>
 </html>
