@@ -13,58 +13,83 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f0f2f5;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
-            background-image: linear-gradient(to bottom, #1a73e8, #1557b0);
+            padding: 80px 20px;
+        }
+
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .background-image.active {
+            opacity: 0.3;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(26, 115, 232, 0.9);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            z-index: 100;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(26, 115, 232, 0.9);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            z-index: 100;
         }
 
         .container {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.95);
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
             max-width: 500px;
             width: 90%;
-            position: relative;
             z-index: 1;
         }
 
-        h1 {
-            color: #1a73e8;
-            margin-bottom: 2rem;
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        .fact-image {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s ease;
         }
 
         .fact-box {
             background-color: #f8f9fa;
             padding: 1.5rem;
             border-radius: 8px;
-            margin-bottom: 1.5rem;
+            margin: 1.5rem 0;
             min-height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .fact-box:hover {
-            transform: scale(1.02);
-        }
-
-        #fact-text {
-            margin: 0;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            color: #333;
-            opacity: 1;
-            transition: opacity 0.3s ease;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         button {
@@ -76,113 +101,93 @@
             cursor: pointer;
             font-size: 1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         button:hover {
             background-color: #1557b0;
-            transform: translateY(-2px);
-            box-shadow: 0 2px 8px rgba(26, 115, 232, 0.3);
-        }
-
-        .background-images {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-
-        .background-images img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.5;
-            animation: fade-in 2s ease;
-        }
-
-        @keyframes fade-in {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 0.5;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 1.5rem;
-            }
-
-            .fact-box {
-                padding: 1rem;
-                min-height: 80px;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="background-images">
-        <img src="https://th.bing.com/th/id/OIP.S52Yy8QDTvtlzBWUhKJE5QAAAA?rs=1&pid=ImgDetMain" alt="Background Image 1">
-        <img src="https://th.bing.com/th/id/OIP.S52Yy8QDTvtlzBWUhKJE5QAAAA?rs=1&pid=ImgDetMain" alt="Background Image 2" style="animation-delay: 5s;">
-        <img src="https://th.bing.com/th/id/OIP.S52Yy8QDTvtlzBWUhKJE5QAAAA?rs=1&pid=ImgDetMain" alt="Background Image 3" style="animation-delay: 12s;">
-    </div>
+    <header>
+        <h2>Salman Khan Facts Hub</h2>
+    </header>
+
+    <div id="background-container"></div>
+
     <div class="container">
         <h1>Salman Khan Records Generator</h1>
+        <img id="fact-image" class="fact-image" src="" alt="Salman Khan">
         <div class="fact-box">
             <p id="fact-text">Click the button to learn something new about Salman Khan's records!</p>
         </div>
         <button id="new-fact-btn">Tell Me More!</button>
     </div>
 
+    <footer>
+        <p>© 2024 Salman Khan Facts | All Rights Reserved</p>
+    </footer>
+
     <script>
         const facts = [
-            "Salman Khan has delivered 15 consecutive films with over 1 crore footfalls, starting from Dabangg to Dabangg 3.",
-            "He is the only actor to have two consecutive films that were the highest-grossing of their respective decades: Maine Pyar Kiya (1980s) and Hum Aapke Hain Koun (1990s).",
-            "He initiated the trend of Rs. 50 crore gross openings with Prem Ratan Dhan Payo and followed it with Sultan, making him the first to achieve this milestone.",
-            "Among his generation, he is the only star to have delivered films with over 7 crore footfalls twice.",
-            "Salman has delivered the highest-grossing film of the year in four consecutive decades.",
-            "He holds the record for delivering five highest non-dubbed Bollywood grossers in the 2010s.",
-            "He leads in all footfall categories among modern stars, with numerous films achieving over 1 crore, 2 crore, and even 5 crore footfalls.",
-            "Hum Aapke Hain Koun is recorded as the most-watched film since Sholay, with approximately 7.40 crore footfalls.",
-            "Three films starring Salman Khan—Bajrangi Bhaijaan, Sultan, and Tiger Zinda Hai—are among those that crossed ₹100 crore collections solely from single screens.",
-            "He delivered four blockbusters in the 2010s, with Bajrangi Bhaijaan was watched by nearly 50 lakh people, more than any Hindi film in history.",
-            "Salman holds records for the maximum number of films grossing over ₹100 crore, ₹200 crore, and ₹300 crore domestically.",
-            "He starred in Hum Aapke Hain Koun, which became the first film to gross over ₹100 crore in Indian cinema.",
-            "He has achieved numerous records, including 17 bumper openers and 10 single-day records.",
-            "His film Sultan holds the record for the highest worldwide collections during its opening weekend.",
-            "Alongside Amitabh Bachchan, he is one of only two actors to deliver three consecutive highest-grossing films of the year.",
-            "He has delivered multiple top-three highest-grossing films within a single year.",
-            "Salman became the only actor to collect over ₹5 billion domestically within a single year.",
-            "He has achieved multiple record openers each year across various releases.",
-            "Finally, he leads with several films that have crossed the significant box office milestone of ₹300 crores worldwide."
+            "Salman Khan has delivered 15 consecutive films with over 1 crore footfalls.",
+            "He is the only actor to have two consecutive highest-grossing films of their decades.",
+            "Most number of 100,200,300 and 400 crore films have been delivered by Salman Khan.",
+            "He is the only star to deliver films with over 7 crore footfalls twice.",
+            "Salman has delivered the highest-grossing film in four consecutive decades.",
+            "India's first fandom to be listed on Asia's Top Fandoms list is Salmaniacs",
+            "Salmaniacs is the only fandom to hold most number of grand celebration hysterias, In 2023 Salmaniacs burst crackers in the theatre which turned out to be world's craziest theatre celebration ever grossing over Billions view worldwide.",
+            "First Indian to donate bone marrow",
+            "Salman Khan's Top 10,20,30,40,50,60,70,80 movies combined footfalls is a record which will be unbreakable for centuries in Indian Cinema",
+            "If Salman Khan wisely start choosing scripts for neutral audience rather than for his fans and keep the ATP as of the market, then your favourite stars will shame on their definition of star"
+        ];
+
+        const images = [
+            "https://th.bing.com/th/id/OIP.ubH9T8mSQPoAnlre4DpJRQHaEQ?w=273&h=180&c=7&r=0&o=5&dpr=2&pid=1.7",
+            "https://ichef.bbci.co.uk/images/ic/640x360/p04yhwsh.jpg",
+            "https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2021/12/pjimage-17-1640169017.jpg",
+            "https://1.bp.blogspot.com/-f-dppTTvFpQ/XobPY7-lR1I/AAAAAAAAnoQ/fKqohFVXrsY3NM3d1Xh_uXnZPWKE4IDswCLcBGAsYHQ/s1600/Salman%2BKhan%2Blooks%2Bfrom%2BHum%2BAapke%2BHain%2BKoun.JPG",
+            "https://th.bing.com/th/id/OIP.whUGMcd_Rmai2SVTjTqOHQHaE_?w=267&h=180&c=7&r=0&o=5&dpr=2&pid=1.7",
+            "https://th.bing.com/th/id/OIP.a9GKxzeMxT1CVQoqmiSHZQHaEK?rs=1&pid=ImgDetMain",
+            "https://media.assettype.com/thenewsminute/2023-11/41447f0b-22a0-42c0-9ddc-269f109a6856/Mohan_theatre_firecrackers_malegaon_1200.png?w=1200&auto=format%2Ccompress&fit=max",
+            "https://www.postoast.com/wp-content/uploads/2020/04/Salman-Khan-donated-bone-marrow.jpg",
+            "https://img.buzzfeed.com/buzzfeed-static/static/2017-02/7/0/asset/buzzfeed-prod-web-03/sub-buzz-16466-1486446384-1.jpg",
+            "https://i.ytimg.com/vi/6BvzmAXKFKQ/hqdefault.jpg",
         ];
 
         const factText = document.getElementById('fact-text');
+        const factImage = document.getElementById('fact-image');
         const newFactBtn = document.getElementById('new-fact-btn');
+        const backgroundContainer = document.getElementById('background-container');
 
-        let currentFactIndex = 0;
+        let currentFactIndex = -1;
+
+        // Create background images
+        images.forEach((imageUrl, index) => {
+            const img = document.createElement('img');
+            img.src = imageUrl;
+            img.className = 'background-image';
+            backgroundContainer.appendChild(img);
+        });
+
+        const backgroundImages = document.querySelectorAll('.background-image');
 
         function showNewFact() {
-            const fact = facts[currentFactIndex];
-            factText.textContent = fact;
             currentFactIndex = (currentFactIndex + 1) % facts.length;
+            
+            // Remove active class from all backgrounds
+            backgroundImages.forEach(img => img.classList.remove('active'));
+            
+            // Update content
+            factText.textContent = facts[currentFactIndex];
+            factImage.src = images[currentFactIndex];
+            
+            // Activate new background
+            backgroundImages[currentFactIndex].classList.add('active');
         }
 
         newFactBtn.addEventListener('click', showNewFact);
-
-        showNewFact();
-
-        // Add animation to background images
-        const backgroundImages = document.querySelectorAll('.background-images img');
-        backgroundImages.forEach((image, index) => {
-            image.style.animationDelay = `${index * 2}s`;
-        });
+        showNewFact(); // Show initial fact
     </script>
 </body>
 </html>
