@@ -94,44 +94,48 @@
     <div class="container">
         <h1> Salman Khan holds the unique record of being the only actor in Indian cinema to achieve numerous milestones Generator </h1>
         <div class="fact-box">
-            <p id="fact-text">Click the button to learn something fun about me!</p>
+            <p id="fact-text">Click the button to learn something unawared records of Indian Cinema!</p>
         </div>
         <button id="new-fact-btn">Tell Me More!</button>
     </div>
 
     <script>
         const facts = [
-           "Salman Khan has delivered 15 consecutive films with over 1 crore footfalls, starting from Dabangg to Dabangg 3." "He is the only actor to have two consecutive films that were the highest-grossing of their respective decades: Maine Pyar Kiya (1980s) and Hum Aapke Hain Koun (1990s)."
-"He initiated the trend of Rs. 50 crore gross openings with Prem Ratan Dhan Payo and followed it with Sultan, making him the first to achieve this milestone." "Among his generation, he is the only star to have delivered films with over 7 crore footfalls twice."
-"Salman has delivered the highest-grossing film of the year in four consecutive decades." "He holds the record for delivering five highest non-dubbed Bollywood grossers in the 2010s." "He leads in all footfall categories among modern stars, with numerous films achieving over 1 crore, 2 crore, and even 5 crore footfalls."
-"Hum Aapke Hain Koun is recorded as the most-watched film since Sholay, with approximately 7.40 crore footfalls." "Three films starring Salman Khan—Bajrangi Bhaijaan, Sultan, and Tiger Zinda Hai—are among those that crossed ₹100 crore collections solely from single screens."
-"He delivered four blockbusters in the 2010s, with Bajrangi Bhaijaan being an all-time blockbuster." "On its third day, Bajrangi Bhaijaan was watched by nearly 50 lakh people, more than any Hindi film in history."
-"Salman holds records for the maximum number of films grossing over ₹100 crore, ₹200 crore, and ₹300 crore domestically." "He starred in Hum Aapke Hain Koun, which became the first film to gross over ₹100 crore in Indian cinema."
-"He has achieved numerous records, including 17 bumper openers and 10 single-day records." "His film Sultan holds the record for the highest worldwide collections during its opening weekend."
-"Alongside Amitabh Bachchan, he is one of only two actors to deliver three consecutive highest-grossing films of the year." "He has delivered multiple top-three highest-grossing films within a single year."
-"Salman became the only actor to collect over ₹5 billion domestically within a single year." "He has achieved multiple record openers each year across various releases."
-"Finally, he leads with several films that have crossed the significant box office milestone of ₹300 crores worldwide."
-        
-        ];
+           "Salman Khan has delivered 15 consecutive films with over 1 crore footfalls, starting from Dabangg to Dabangg 3.",
+           "He is the only actor to have two consecutive films that were the highest-grossing of their respective decades: Maine Pyar Kiya (1980s) and Hum Aapke Hain Koun (1990s).",
+           "He initiated the trend of Rs. 50 crore gross openings with Prem Ratan Dhan Payo and followed it with Sultan, making him the first to achieve this milestone.",
+           "Among his generation, he is the only star to have delivered films with over 7 crore footfalls twice.",
+           "Salman has delivered the highest-grossing film of the year in four consecutive decades.",
+           "He holds the record for delivering five highest non-dubbed Bollywood grossers in the 2010s.",
+           "He leads in all footfall categories among modern stars, with numerous films achieving over 1 crore, 2 crore, and even 5 crore footfalls.",
+           "Hum Aapke Hain Koun is recorded as the most-watched film since Sholay, with approximately 7.40 crore footfalls.",
+           "Three films starring Salman Khan—Bajrangi Bhaijaan, Sultan, and Tiger Zinda Hai—are among those that crossed ₹100 crore collections solely from single screens.",
+           "He delivered four blockbusters in the 2010s, with Bajrangi Bhaijaan was watched by nearly 50 lakh people, more than any Hindi film in history."
+,"Salman holds records for the maximum number of films grossing over ₹100 crore, ₹200 crore, and ₹300 crore domestically.",
+    "He starred in Hum Aapke Hain Koun, which became the first film to gross over ₹100 crore in Indian cinema.",
+    "He has achieved numerous records, including 17 bumper openers and 10 single-day records.",
+    "His film Sultan holds the record for the highest worldwide collections during its opening weekend.",
+    "Alongside Amitabh Bachchan, he is one of only two actors to deliver three consecutive highest-grossing films of the year.",
+    "He has delivered multiple top-three highest-grossing films within a single year.",
+    "Salman became the only actor to collect over ₹5 billion domestically within a single year.",
+    "He has achieved multiple record openers each year across various releases.",
+    "Finally, he leads with several films that have crossed the significant box office milestone of ₹300 crores worldwide."
+];
 
-        const factText = document.getElementById('fact-text');
-        const newFactBtn = document.getElementById('new-fact-btn');
+const factText = document.getElementById('fact-text');
+const newFactBtn = document.getElementById('new-fact-btn');
 
-        function getRandomFact() {
-            const randomIndex = Math.floor(Math.random() * facts.length);
-            return facts[randomIndex];
-        }
+let currentFactIndex = 0;
 
-        function updateFact() {
-            factText.style.opacity = '0';
-            setTimeout(() => {
-                factText.textContent = getRandomFact();
-                factText.style.opacity = '1';
-            }, 300);
-        }
+function showNewFact() {
+    const fact = facts[currentFactIndex];
+    factText.textContent = fact;
+    currentFactIndex = (currentFactIndex + 1) % facts.length;
+}
 
-        newFactBtn.addEventListener('click', updateFact);
-        factText.textContent = getRandomFact();
+newFactBtn.addEventListener('click', showNewFact);
+
+showNewFact();
     </script>
 </body>
 </html>
